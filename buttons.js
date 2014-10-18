@@ -19,6 +19,18 @@ function addCol() {
 	columns++;
 }
 
+function removeRow() {
+	rows--;
+	var row = "row" + rows;
+	$(row).remove();
+}
+
+function removeCol() {
+	columns--;
+	var col = "col" + columns;
+	$(col).remove();
+}
+
 
 
 
