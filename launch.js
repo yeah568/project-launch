@@ -52,21 +52,6 @@ function playSound(element) {
     }
 }
 
-
-
-/*$('li').each(function(index, e) {
-    $('#buttonSelect').append($('<option>', {
-        value: index,
-        text: index
-    }));
-    $('#buttonSelectFile').append($('<option>', {
-        value: index,
-        text: index
-    }));
-    buttons.push(e);
-})*/
-
-
 function setSoundSource(reference, element) {
 	element.dataset.sound = reference;
 }
@@ -87,8 +72,6 @@ function addSC(url) {
         });
     })
 };
-
-//$('#fileInput').addEventListener('change', addFile, false);
 
 function addFile(files) {
     var file = files[0];
@@ -137,8 +120,6 @@ function sliceSound(so, e) {
 
     console.log(so.duration);
 }
-
-// watches for key presses
 
 function keyEvent(e) {
     if (mode == 'session') {
@@ -287,7 +268,6 @@ function playMacro(e) {
     }
 }
 
-
 function reportTimes() {
     var reportString = "";
     for(var i = 0; i < times.length - 1; ++i) {
@@ -295,8 +275,3 @@ function reportTimes() {
     }
     return reportString; // add this somewhere or alert it
 }
-
-
-
-// play should eventually be able to implement defined behaviour of
-// the button,
