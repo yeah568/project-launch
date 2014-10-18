@@ -2,6 +2,7 @@ var rows = 3;
 var columns = 4	;
 var mode = 'session';
 var pressedButton;
+var keyInputted = false;
 
 $(document).ready(function() {
 	init();
@@ -27,15 +28,19 @@ function addCol() {
 }
 
 function removeRow() {
-	rows--;
-	$(".board").children().last().remove();
+	if (rows > 1) {
+		rows--;
+		$(".board").children().last().remove();
+	}
 }
 
 function removeCol() {
-	columns--;
+	if (columns > 1) {
+		columns--;
 
-	for (var i = 0; i < rows; i++) {
-		$(".row").eq(i).children().last().remove();
+		for (var i = 0; i < rows; i++) {
+			$(".row").eq(i).children().last().remove();
+		}
 	}
 }
 
@@ -47,11 +52,16 @@ function init() {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
 		} else if (mode=="key-bindings") {
-			pressedButton = this;
-			this.style.background = "#FF0000";
-			this.style.background = "#7CFC00";
+			if (pressedButton === undefined) {
+				pressedButton = this;
+			}
+			else {
+				pressedButton.style.background = "#DDDDDD";
+				pressedButton = this;
+			}	
+			pressedButton.style.background = "#FF0000";			
 		}
-		else {
+		else if (mode=="session" || mode=="drums"){
 			 playSound(this);
 		}
 	})
