@@ -82,7 +82,7 @@ function addFile(files) {
     }
 
     reader.readAsDataURL(file);
-
+    mode = "edit";
 }
 
 function sliceSound(e) {
@@ -105,6 +105,12 @@ function sliceSound(e) {
 // watches for key presses
 
 function keyEvent(e) {
+    if (mode == 'session') {
+        sessionModeKey(e)
+    }
+}
+
+function sessionModeKey(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
     var element = document.getElementById(charCode);
     if ($.inArray(charCode, numrowcodes) == -1) {
@@ -119,9 +125,9 @@ function keyEvent(e) {
     }
 }
 
-
 // macro shit
 function startMacro (e) {
+    times = []
     times.push({"timestamp":e.timeStamp,
                 "keycode":e.which})
     macroRecording = true;
