@@ -121,7 +121,9 @@ html, body {
   display: flex;
   list-style: none;
 
-  border: 1px solid;
+  background: #444444;
+
+  border: 2px solid;
   border-radius: 10px;
   padding: 5px;
   padding-top: 17px;
@@ -135,8 +137,10 @@ html, body {
 }
 
 .macro {
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 30px;
+
+  background: #DDDDDD;
 
   width: 25px;
   height: 25px;
@@ -144,6 +148,7 @@ html, body {
   margin: 3px;
 
   display: table;
+  cursor: pointer;
 }
 
 .macro p {

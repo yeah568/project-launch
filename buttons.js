@@ -46,6 +46,8 @@ function init() {
 		if (mode=="edit") {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
+		} else {
+			 playSound(this);
 		}
 	})
 	$(".button").hover(function() {
@@ -53,6 +55,13 @@ function init() {
 	}, function() {
 		this.style.border = "2px solid black";
 	});
+
+	$(".macro").hover(function() {
+		this.style.border = "2px solid blue";
+	}, function() {
+		this.style.border = "2px solid black";
+	});
+
 
 	$(".mode-tab").on("click", function() {
 		document.getElementById(mode).style.background = "#FFFFFF";
@@ -64,4 +73,4 @@ function init() {
 	document.getElementById(mode).style.background = "#FF0000";
 
 }
-	
+

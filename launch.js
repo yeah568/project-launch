@@ -6,9 +6,9 @@ document.onkeypress =  keyEvent;
 var soundids = [];
 var buttons = [];
 
-$('.button').on('click',function() {
+/*$('.button').on('click',function() {
     playSound(this);
-})
+})*/
 
 function playSound(element) {
     if (mode != 'edit') {
@@ -17,7 +17,7 @@ function playSound(element) {
         playingNow = false;
         soundManager.getSoundById(element.dataset.soundid).stop();
         element.style.background = "#FFFF00";
-        
+
         return;
     }
     if (element.dataset.soundid != null && element.dataset.soundid != "") {
