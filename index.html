@@ -20,6 +20,15 @@
 
 </head>
 <body>
+  <center>
+    <div class="options">
+      <div class="option" onclick="addRow()">+ Row</div>
+      <div class="option" onclick="removeRow()">- Row</div>
+      <div class="option" onclick="addCol()">+ Col</div>
+      <div class="option" onclick="removeCol()">- Col</div>
+      <div class="option"><input type="checkbox" id="loop">Loop?</div>
+    </div>
+  </center>
   <ul class="container">
     <ul class="board-div">
   		<ul class="board">
@@ -42,7 +51,7 @@
   				<li class="button"/>
   			</ul>
   		</ul>
-  		<ul id="modes" class="modes">
+  		  <ul id="modes" class="modes">
           <li id="session" class="mode-tab">Session</li>
           <li id="drums" class="mode-tab">Drums</li>
           <li id="edit" class="mode-tab">Edit</li>
@@ -57,14 +66,9 @@
       <li class="macro"><p>5</p></li>
     </ul>
   </ul>
-
-	<button type="button" onclick="addRow()">ADDROW</button>
-	<button type="button" onclick="addCol()">ADDCOL</button>
-	<button type="button" onclick="removeRow()">REMROW</button>
-	<button type="button" onclick="removeCol()">REMCOL</button>
-	<input type="checkbox" id="loop">Loop?
-
-  <div id="slider-range"></div>
+  <center>
+    <div class="slider" id="slider-range"></div>
+  </center>
 
   <script src="launch.js"></script>
   <script src="buttons.js"></script>
