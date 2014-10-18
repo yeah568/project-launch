@@ -14,17 +14,12 @@
 
 </head>
 <body>
-    <div class="board-div">
-        <div id="modes" class="modes">
-            <div id="session" class="mode-tab">Session</div>
-            <div id="edit" class="mode-tab">Edit</div>
-            <div id="drums" class="mode-tab">Drums</div>
-        </div>
+    <ul class="board-div">
 		<ul class="board">
 			<ul class="row">
-				<li class="button playButton" data-sound="assets/pop.wav" data-type="local">POP</li> 
-				<li class="button playButton" data-sound="assets/glass.mp3" data-type="local">SMASH</li>
-				<li class="button playButton" data-sound="assets/mak.mp3" data-type="local">MAK</li>
+				<li class="button playButton" data-sound="assets/pop.wav" data-type="local"><p>POP</p></li> 
+				<li class="button playButton" data-sound="assets/glass.mp3" data-type="local"><p>SMASH</p></li>
+				<li class="button playButton" data-sound="assets/mak.mp3" data-type="local"><p>MAK</p></li>
 				<li class="button playButton" data-sound="https://soundcloud.com/wqiwilliam/pop" data-type="soundcloud"/>
 			</ul>
 			<ul class="row">
@@ -40,7 +35,12 @@
 				<li class="button"/>
 			</ul>
 		</ul>
-	</div>
+		<ul id="modes" class="modes">
+            <li id="session" class="mode-tab">Session</li>
+            <li id="edit" class="mode-tab">Edit</li>
+            <li id="drums" class="mode-tab">Drums</li>
+        </ul>
+	</ul>
 
 	<button type="button" onclick="addRow()">ADDROW</button>
 	<button type="button" onclick="addCol()">ADDCOL</button>

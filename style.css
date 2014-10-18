@@ -7,6 +7,12 @@ html, body {
 }
 
 .board-div {
+  display: -webkit-box;
+  display: -moz-box;  
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -69,7 +75,13 @@ html, body {
 }
 
 .modes {
-  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-direction: column;
 }
 
 .mode-tab {
@@ -78,4 +90,5 @@ html, body {
   padding: 5px;
 
   display: inline-block;
+  float: right;
 }
