@@ -52,6 +52,21 @@ function playSound(element) {
     }
 }
 
+
+
+/*$('li').each(function(index, e) {
+    $('#buttonSelect').append($('<option>', {
+        value: index,
+        text: index
+    }));
+    $('#buttonSelectFile').append($('<option>', {
+        value: index,
+        text: index
+    }));
+    buttons.push(e);
+})*/
+
+
 function setSoundSource(reference, element) {
 	element.dataset.sound = reference;
 }
@@ -72,6 +87,8 @@ function addSC(url) {
         });
     })
 };
+
+//$('#fileInput').addEventListener('change', addFile, false);
 
 function addFile(files) {
     var file = files[0];
@@ -121,6 +138,8 @@ function sliceSound(so, e) {
     console.log(so.duration);
 }
 
+// watches for key presses
+
 function keyEvent(e) {
     if (mode == 'session') {
         sessionModeKey(e)
@@ -133,7 +152,7 @@ function keyEvent(e) {
 
 function sessionModeKey(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    var element = document.getElementById('char' + charCode);
+    var element = document.getElementById(charCode);
     if ($.inArray(charCode, numrowcodes) == -1) {
         playSound(element);
         if (macroRecording) {
@@ -178,7 +197,7 @@ function startOrPlayMacro(e) {
 
 function bindKeys(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    pressedButtonKey.setAttribute('id', 'char' + charCode);
+    pressedButtonKey.setAttribute('id', charCode);
     pressedButtonKey.style.background = previousColor;
 
     while (pressedButtonKey.firstChild) {
@@ -261,12 +280,13 @@ function playMacro(e) {
         macroRelTime.push({'timestamp':relTime, 'keycode':obj['keycode']})
     })
     var lastTime = 0;
-    for (var i = 1; i < macroRelTime.length - 1; i++) {
-        var element = document.getElementById('char' + macroRelTime[i]['keycode']);
+    for (i=1; i<macroRelTime.length - 1; i++) {
+        var element = document.getElementById(macroRelTime[i]['keycode']);
         setTimeout(playSound(element), macroRelTime[i]['timestamp'] - lastTime);
         var lastTime = macroRelTime[i]['timestamp'];
     }
 }
+
 
 function reportTimes() {
     var reportString = "";
@@ -275,3 +295,8 @@ function reportTimes() {
     }
     return reportString; // add this somewhere or alert it
 }
+
+
+
+// play should eventually be able to implement defined behaviour of
+// the button,

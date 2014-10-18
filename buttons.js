@@ -53,10 +53,10 @@ function init() {
 		if (mode=="edit") {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
-		} else if (mode=="key-bindings") {
-			if (pressedButtonKey == undefined) {
+		} else if (mode=="pressedButtonKeydings") {
+			if (pressedButtonKey === undefined) {
 				pressedButtonKey = this;
-				previousColor = pryujessedButtonKey.style.background;
+				previousColor = pressedButtonKey.style.background;
 			}
 			else {
 				pressedButtonKey.style.background = previousColor;
