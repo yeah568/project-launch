@@ -56,7 +56,7 @@ function init() {
 		} else if (mode=="key-bindings") {
 			if (pressedButtonKey == undefined) {
 				pressedButtonKey = this;
-				previousColor = pressedButtonKey.style.background;
+				previousColor = pryujessedButtonKey.style.background;
 			}
 			else {
 				pressedButtonKey.style.background = previousColor;
