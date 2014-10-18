@@ -20,28 +20,30 @@
 </head>
 <body>
 	<ul class="board">
-		<ul class="row">
-			<li class="button playButton" data-sound="assets/pop.wav">POP</li>
-			<li class="button"/>
-			<li class="button"/>
-			<li class="button"/>
+		<ul class="row" id="row0">
+			<li class="button playButton" data-sound="assets/pop.wav" id="col0">POP</li>
+			<li class="button" id="col1"/>
+			<li class="button" id="col2"/>
+			<li class="button" id="col3"/>
 		</ul>
-		<ul class="row">
-			<li class="button"/>
-			<li class="button"/>
-			<li class="button"/>
-			<li class="button"/>
+		<ul class="row" id="row1">
+			<li class="button" id="col0"/>
+			<li class="button" id="col1"/>
+			<li class="button" id="col2"/>
+			<li class="button" id="col3"/>
 		</ul>
-		<ul class="row">
-			<li class="button"/>
-			<li class="button"/>
-			<li class="button"/>
-			<li class="button"/>
+		<ul class="row" id="row2">
+			<li class="button" id="col0"/>
+			<li class="button" id="col1"/>
+			<li class="button" id="col2"/>
+			<li class="button" id="col3"/>
 		</ul>
 	</ul>
 
 	<button type="button" onclick="addRow()">ADDROW</button>
 	<button type="button" onclick="addCol()">ADDCOL</button>
+	<button type="button" onclick="removeRow()">REMROW</button>
+	<button type="button" onclick="removeCol()">REMCOL</button>
     <script src="launch.js"></script>
     <script src="buttons.js"></script>
 </body>
