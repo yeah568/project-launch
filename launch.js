@@ -2,7 +2,7 @@ SC.initialize({
       client_id: "be26e36572618f7b450125e3b4f68854"
 });
 
-$('.playButton').on('click',function() {
+$('.button').on('click',function() {
 /*	if (this.dataset.type == "local") {
     	soundManager.createSound({
         	url: this.dataset.sound
@@ -12,7 +12,9 @@ $('.playButton').on('click',function() {
 
 
 	}*/
-    soundManager.getSoundById(this.dataset.soundid).play();
+    if (this.dataset.soundid != null && this.dataset.soundid != "") {
+        soundManager.getSoundById(this.dataset.soundid).play();
+    }
 })
 
 var soundids = [];
