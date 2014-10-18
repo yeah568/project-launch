@@ -21,14 +21,17 @@ function addCol() {
 
 function removeRow() {
 	rows--;
-	var row = "row" + rows;
+	var row = "#row" + rows;
 	$(row).remove();
 }
 
 function removeCol() {
 	columns--;
-	var col = "col" + columns;
-	$(col).remove();
+	var col = "#col" + columns;
+
+	for (var i = 0; i < rows; i++) {
+		$(col).remove();
+	}
 }
 
 
