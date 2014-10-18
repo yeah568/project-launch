@@ -12,6 +12,11 @@ html, body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: #9CBA7F;
+
+
 
   position: fixed;
   top: 50%;
@@ -24,9 +29,7 @@ html, body {
   padding-right: 100px;
   margin: 0;
   list-style: none;
-  background: #9CBA7F;         <!--change back to black -->
-  border: 1px solid;
-  border-radius: 10px;
+           <!--change back to black -->
   
   display: -webkit-box;
   display: -moz-box;	
@@ -90,6 +93,8 @@ html, body {
   border: 1px solid;
   border-radius: 10px;
   padding: 5px;
+
+  background: #FFFFFF;
 
   display: inline-block;
   float: right;

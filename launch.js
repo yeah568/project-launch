@@ -88,6 +88,11 @@ function sliceSound(e) {
 
 }
 
+// watches for key presses
+document.onkeypress = function() {
+    var element = document.getElementById(this);
+    play(element.getAttribute(data-sound));
+}
 
 
 

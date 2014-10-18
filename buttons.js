@@ -11,6 +11,7 @@ function addRow() {
 
 	$(".board").append(newRow);
 	rows++;
+	init();
 }
 
 function addCol() {
@@ -18,11 +19,13 @@ function addCol() {
 
 	$(".row").append(newButton);
 	columns++;
+	init();
 }
 
 function removeRow() {
 	rows--;
 	$(".board").children().last().remove();
+	init();
 }
 
 function removeCol() {
@@ -31,6 +34,7 @@ function removeCol() {
 	for (var i = 0; i < rows; i++) {
 		$(".row").eq(i).children().last().remove();
 	}
+	init();
 }
 
 
@@ -39,8 +43,16 @@ function init() {
 		if (mode == 'session')
 			this.style.background = "#FF0000";
 		else if (mode == 'edit')
+			Apprise('Is your sound file from the web or your computer?');
+	});
+
+	$(".button playButton").on("click", function() {
+		if (mode == 'session')
+			this.style.background = "#FF0000"; 	
+		else if (mode == 'edit')
 			Apprise('asdf');
 	});
+
 
 	$(".button").hover(function() {
 		this.style.border = "2px solid blue";
