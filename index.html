@@ -61,6 +61,18 @@
 	<button type="button" onclick="removeRow()">REMROW</button>
 	<button type="button" onclick="removeCol()">REMCOL</button>
 	<button type="button" onclick="init()">init</button>
+
+  <form class="add-sc" action="javascript:void(0);">
+    <input id="scurl" type="text" placeholder="soundcloud url" />
+    <select id="buttonSelect">
+    </select>
+    <button onclick="addSC()" onsubmit="addSC()">Submit</button>
+  </form>
+  <form class="add-local" action="javascript:void(0);">
+    <input type="file" id="fileInput" onchange="addFile(this.files)">
+    <select id="buttonSelectFile">
+    </select>
+  </form>
   <div id="slider-range"></div>
 
   <script src="launch.js"></script>
