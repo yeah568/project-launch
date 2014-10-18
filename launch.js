@@ -6,16 +6,16 @@ document.onkeypress =  keyEvent;
 var soundids = [];
 var buttons = [];
 
-$('.button').on('click',function() {
+/*$('.button').on('click',function() {
     playSound(this);
-})
+})*/
 
 function playSound(element) {
     if (soundManager.getSoundById(element.dataset.soundid).playState) {
         playingNow = false;
         soundManager.getSoundById(element.dataset.soundid).stop();
         element.style.background = "#FFFF00";
-        
+
         return;
     }
     if (mode != 'edit') {

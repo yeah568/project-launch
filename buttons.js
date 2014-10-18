@@ -44,6 +44,8 @@ function init() {
 	$(".button").on("click", function() {
 		if (mode=="edit") {
 			Apprise("Is your sound from the web or your computer?");
+		} else {
+			 playSound(this);
 		}
 	})
 	$(".button").hover(function() {
@@ -69,4 +71,4 @@ function init() {
 	document.getElementById(mode).style.background = "#FF0000";
 
 }
-	
+
