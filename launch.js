@@ -160,18 +160,18 @@ function sessionModeKey(e) {
 
 function bindKeys(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    pressedButton.setAttribute('id', charCode);
-    pressedButton.style.background = "#7CFC00";
+    pressedButtonKey.setAttribute('id', charCode);
+    pressedButtonKey.style.background = "#DDDDDD";
 
-    while (pressedButton.firstChild) {
-        pressedButton.removeChild(pressedButton.firstChild);
+    while (pressedButtonKey.firstChild) {
+        pressedButtonKey.removeChild(pressedButtonKey.firstChild);
     }
 
     var paragraph = document.createElement("p");
     var letter = document.createTextNode(String.fromCharCode(charCode));
     paragraph.appendChild(letter);
-    pressedButton.appendChild(paragraph);
-    pressedButton = undefined;
+    pressedButtonKey.appendChild(paragraph);
+    pressedButtonKey = undefined;
 
 }
 
