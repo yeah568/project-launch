@@ -273,8 +273,8 @@ function playMacro(e) {
         var relTime = obj['timestamp'] - startTime;
         macroRelTime.push({'timestamp':relTime, 'keycode':obj['keycode']})
     })
+    var lastTime = 0;
     for (i=1; i<macroRelTime.length - 1; i++) {
-        var lastTime = 0;
         var element = document.getElementById(macroRelTime[i]['keycode']);
         setTimeout(playSound(element), macroRelTime[i]['timestamp'] - lastTime);
         var lastTime = macroRelTime[i]['timestamp'];
