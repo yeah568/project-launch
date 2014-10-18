@@ -26,7 +26,7 @@ function Apprise(text, options) {
 	
 	// Necessary variables
 	var $me = this,
-			$_inner = $('<div class="apprise-inner">'),
+			//$_inner = $('<div class="apprise-inner">'),
 			$_buttons = $('<div class="apprise-buttons">'),
 			$_input = $('<input type="text">');
 	
@@ -35,12 +35,17 @@ function Apprise(text, options) {
 	
 		animation: 700,	// Animation speed
 		buttons: {
-			confirm: {
-				action: function() { $me.dissapear(); }, // Callback function
-				className: null, // Custom class name(s)
-				id: 'confirm', // Element ID
-				text: 'Ok' // Button text
+			web: {
+				action: function() { $me.dissapear(); }, // open web input box
+				id: 'web', // Element ID
+				text: 'Web' // Button text
+			},
+			local: {
+				action: function() { $me.dissapear(); }, // open local dialog box
+				id: 'local', // Element ID
+				text: 'My Computer'
 			}
+
 		},
 		input: false, // input dialog
 		override: true // Override browser navigation while Apprise is visible
@@ -177,7 +182,7 @@ function Apprise(text, options) {
 	$window.resize( function() { $me.adjustWidth() } );
 	
 	// Append elements, show Apprise
-	$Apprise.html('').append( $_inner.append('<div class="apprise-content">' + text + '</div>') ).append($_buttons);
+	$Apprise.html('').append($_buttons);
 	$cA = this;
 	
 	if(settings.input) {

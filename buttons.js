@@ -37,7 +37,7 @@ $(".button").on("click", function() {
 	if (mode == 'session')
 		this.style.background = "#FF0000";
 	else if (mode == 'edit')
-		Apprise('test');
+		Apprise('asdf');
 });
 
 	

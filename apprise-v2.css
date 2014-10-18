@@ -3,7 +3,7 @@
 	display: none;
 	height: 100%;
 	left: 0;
-	position: fixed;
+	position: relative;
 	top: 0;
 	width: 100%;
 }
@@ -14,7 +14,7 @@ div.apprise {
 	box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
 		-mox-box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
 		-webkit-box-shadow: 0px 2px 15px rgba(0,0,0,0.2);
-	color: #111;
+	color: #33CCFF;
 	display: none;
 	font-family: Arial, sans-serif;
 	font-size: 14px;
@@ -25,10 +25,11 @@ div.apprise {
 	top: -100%;
 	width: 20%;
 }
-
+/*
 div.apprise .apprise-inner {
 	padding: 20px;
 }
+
 
 div.apprise .apprise-input {
 	margin-top: 10px;
@@ -54,46 +55,38 @@ div.apprise .apprise-input input:focus {
 	border-color: #01AEF0;
 	outline: none;
 }
-
+*/
 div.apprise .apprise-buttons {
-	background: #eee;
+	background: #B2F0FF;
 	border-top: 1px solid #aaa;
 	box-shadow: inset 0px 1px 0px #fff;
 		-moz-box-shadow: inset 0px 1px 0px #fff;
 		-webkit-box-shadow: inset 0px 1px 0px #fff;
 	padding: 10px 20px;
-	text-align: right;
+	margin-top: -3px;
+	text-align: center;
 }
 
 div.apprise .apprise-buttons button {
 	background: #ededed;
 	border: 1px solid rgba(0,0,0,0.5);
-	border-radius: 2px;
-		-moz-border-radius: 2px;
-		-webkit-border-radius: 2px;
+	border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
 	box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5);
 		-mox-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5);
 		-webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5);
 	cursor: pointer;
 	font-size: 20px;
-	margin: 0 2px;
+	margin: 10px 10px;
 	overflow: hidden;
-	padding: 5px 12px;
+	padding: 50px 50px;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.8);
+	width: 45%;
+	height: 85%;
+
 }
 
-div.apprise .apprise-buttons button.blue {
-	background: #01AEF0;
-}
-
-div.apprise .apprise-buttons button.red {
-	background: #D23A30;
-}
-
-div.apprise .apprise-buttons button.blue, div.apprise .apprise-buttons button.red {
-	color: #fff;
-	text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
-}
 
 div.apprise .apprise-buttons button:hover {
 	box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5), 0px 1px 3px rgba(0,0,0,0.4);
