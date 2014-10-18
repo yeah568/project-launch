@@ -21,7 +21,7 @@ var webSettings = {
 	buttons: {
 		confirm: {
 			action: function(e) { 
-				console.log(e);
+				addSC(e.input);
 				Apprise('close') },
 			id: 'confirm',
 			text: 'OK'
@@ -70,8 +70,9 @@ function Apprise(text, options) {
 			},
 			local: {
 				action: function() { 
-				Apprise('<input type="file" id="fileInput">', localSettings);
-				$me.dissapear();}, // open local dialog box
+					Apprise('<input type="file" id="fileInput">', localSettings);
+					$me.dissapear();
+				}, // open local dialog box
 				id: 'local', // Element ID
 				text: 'My Computer'
 			}

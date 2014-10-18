@@ -70,8 +70,8 @@ function addSC(url) {
     SC.get('/resolve', {url: track_url}, function(track) {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
             soundids.push(sound.id);
-            buttons[$('#buttonSelect').val()].dataset.soundid = sound.id;
-            buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
+            pressedButton.dataset.soundid = sound.id;
+            pressedButton.style.background = "#FFFF00";
             pressedButton = 'undefined';
 
         });
@@ -86,10 +86,11 @@ function addFile(files) {
     var reader = new FileReader();
 
     reader.onloadend = function () {
-        buttons[$('#buttonSelectFile').val()].dataset.soundid = soundManager.createSound({
+        pressedButton.dataset.soundid = soundManager.createSound({
             url: reader.result
         }).id;
-        buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
+        pressedButton.style.background = "#FFFF00";
+        pressedButton = 'undefined';
     }
 
     reader.readAsDataURL(file);
