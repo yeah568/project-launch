@@ -1,7 +1,8 @@
 var rows = 3;
 var columns = 4	;
 var mode = 'session';
-var pressedButton;
+var pressedButton = undefined;
+var pressedButtonKey = undefined;
 var keyInputted = false;
 
 $(document).ready(function() {
@@ -52,14 +53,14 @@ function init() {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
 		} else if (mode=="key-bindings") {
-			if (pressedButton === undefined) {
-				pressedButton = this;
+			if (pressedButtonKey == undefined) {
+				pressedButtonKey = this;
 			}
 			else {
-				pressedButton.style.background = "#DDDDDD";
-				pressedButton = this;
+				pressedButtonKey.style.background = "#DDDDDD";
+				pressedButtonKey = this;
 			}	
-			pressedButton.style.background = "#FF0000";			
+			pressedButtonKey.style.background = "#FF0000";			
 		}
 		else if (mode=="session" || mode=="drums"){
 			 playSound(this);
