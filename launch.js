@@ -2,6 +2,7 @@ SC.initialize({
       client_id: "be26e36572618f7b450125e3b4f68854"
 });
 
+document.onkeypress =  keyEvent;
 var soundids = [];
 var buttons = [];
 
@@ -102,8 +103,9 @@ function sliceSound(e) {
 }
 
 // watches for key presses
-document.onkeypress = function() {
-    var element = document.getElementById(this);
+function keyEvent(e) {
+    var charCode = (typeof e.which == "number") ? e.which : e.keyCode
+    var element = document.getElementById(charCode);
     playSound(element);
 }
 
