@@ -2,6 +2,9 @@ var rows = 3;
 var columns = 4	;
 var mode = 'session';
 
+$(document).ready(function() {
+	init();
+});
 
 function addRow() {
 	var newRow = $('<ul class="row"></ul>');
@@ -39,20 +42,6 @@ function removeCol() {
 
 
 function init() {
-	$(".button").on("click", function() {
-		if (mode == 'session')
-			this.style.background = "#FF0000";
-		else if (mode == 'edit')
-			Apprise('Is your sound file from the web or your computer?');
-	});
-
-	$(".button playButton").on("click", function() {
-		if (mode == 'session')
-			this.style.background = "#FF0000"; 	
-		else if (mode == 'edit')
-			Apprise('asdf');
-	});
-
 
 	$(".button").hover(function() {
 		this.style.border = "2px solid blue";

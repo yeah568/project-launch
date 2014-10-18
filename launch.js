@@ -2,6 +2,10 @@ SC.initialize({
       client_id: "be26e36572618f7b450125e3b4f68854"
 });
 
+document.onkeypress =  keyEvent;
+var soundids = [];
+var buttons = [];
+
 $('.button').on('click',function() {
 /*	if (this.dataset.type == "local") {
     	soundManager.createSound({
@@ -12,10 +16,16 @@ $('.button').on('click',function() {
 
 
 	}*/
+
+    var element = this;
+    playSound(element);
+})
+
+function playSound(element) {
     if (mode != 'edit') {
-    if (this.dataset.soundid != null && this.dataset.soundid != "") {
-        var e = this;
-        soundManager.getSoundById(this.dataset.soundid).play({
+    if (element.dataset.soundid != null && element.dataset.soundid != "") {
+        var e = element;
+        soundManager.getSoundById(element.dataset.soundid).play({
             onplay: function() {
                 e.style.background = "#00FF00";
             },
@@ -25,12 +35,9 @@ $('.button').on('click',function() {
         });
         }
     }
-})
-
-var soundids = [];
+}
 
 
-var buttons = [];
 
 $('li').each(function(index, e) {
     $('#buttonSelect').append($('<option>', {
@@ -55,6 +62,7 @@ function addSC() {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
             soundids.push(sound.id);
             buttons[$('#buttonSelect').val()].dataset.soundid = sound.id;
+            buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
         });
     })
 };
@@ -70,6 +78,7 @@ function addFile(files) {
         buttons[$('#buttonSelectFile').val()].dataset.soundid = soundManager.createSound({
             url: reader.result
         }).id;
+        buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
     }
 
     reader.readAsDataURL(file);
@@ -94,9 +103,10 @@ function sliceSound(e) {
 }
 
 // watches for key presses
-document.onkeypress = function() {
-    var element = document.getElementById(this);
-    play(element.getAttribute(data-sound));
+function keyEvent(e) {
+    var charCode = (typeof e.which == "number") ? e.which : e.keyCode
+    var element = document.getElementById(charCode);
+    playSound(element);
 }
 
 
