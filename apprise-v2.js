@@ -35,7 +35,6 @@ var localSettings = {
 	buttons: {
 		confirm: {
 			action: function(e) { 
-				console.log(e);
 				Apprise('close') },
 			id: 'confirm',
 			text: 'OK'

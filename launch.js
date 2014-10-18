@@ -59,7 +59,6 @@ function addSC(url) {
     var track_url = url;
     SC.get('/resolve', {url: track_url}, function(track) {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
-            soundids.push(sound.id);
             pressedButton.dataset.soundid = sound.id;
             pressedButton.style.background = "#FFFF00";
             pressedButton = 'undefined';

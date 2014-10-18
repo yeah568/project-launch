@@ -48,6 +48,8 @@ function init() {
 			Apprise("Is your sound from the web or your computer?");
 		} else if (mode=="key-bindings") {
 			pressedButton = this;
+			this.style.background = "#FF0000";
+			this.style.background = "#7CFC00";
 		}
 		else {
 			 playSound(this);
