@@ -4,6 +4,7 @@ var mode = 'session';
 var pressedButton = undefined;
 var pressedButtonKey = undefined;
 var keyInputted = false;
+var previousColor;
 
 $(document).ready(function() {
 	init();
@@ -55,10 +56,12 @@ function init() {
 		} else if (mode=="key-bindings") {
 			if (pressedButtonKey == undefined) {
 				pressedButtonKey = this;
+				previousColor = pressedButtonKey.style.background;
 			}
 			else {
-				pressedButtonKey.style.background = "#DDDDDD";
+				pressedButtonKey.style.background = previousColor;
 				pressedButtonKey = this;
+				previousColor = pressedButtonKey.style.background;
 			}	
 			pressedButtonKey.style.background = "#FF0000";			
 		}
