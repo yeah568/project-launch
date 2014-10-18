@@ -55,6 +55,7 @@ function addSC() {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
             soundids.push(sound.id);
             buttons[$('#buttonSelect').val()].dataset.soundid = sound.id;
+            buttons[$('#buttonSelect').val()].style.background = "#00FF00";
         });
     })
 };
@@ -70,6 +71,7 @@ function addFile(files) {
         buttons[$('#buttonSelectFile').val()].dataset.soundid = soundManager.createSound({
             url: reader.result
         }).id;
+        buttons[$('#buttonSelect').val()].style.background = "#00FF00";
     }
 
     reader.readAsDataURL(file);
