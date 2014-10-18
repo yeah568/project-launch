@@ -38,7 +38,6 @@ html, body {
 
 .board {
   padding: 10px;
-  padding-right: 100px;
   margin: 0;
   list-style: none;
 
@@ -91,11 +90,14 @@ html, body {
 }
 
 .modes {
+  padding-top: 15px;
+
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  list-style: none;
 
   flex-direction: column;
 
@@ -111,6 +113,22 @@ html, body {
 
   display: inline-block;
   float: right;
+  cursor: pointer;
+}
+
+.options {
+  padding-bottom: 10px;
+}
+
+.option {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+
+  background: #FFFFFF;
+
+  display: inline-block;
+  float: center;
   cursor: pointer;
 }
 
@@ -160,3 +178,6 @@ html, body {
   text-align: center;
 }
 
+.slider {
+  width: 800px;
+}
