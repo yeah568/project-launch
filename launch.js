@@ -15,23 +15,35 @@ var numrowcodes = [49,50,51,52,53];
 function playSound(element) {
     if (mode != 'edit') {
 
-    if (soundManager.getSoundById(element.dataset.soundid).playState) {
-        playingNow = false;
-        soundManager.getSoundById(element.dataset.soundid).stop();
-        element.style.background = "#FFFF00";
-        return;
-    }
-    if (element.dataset.soundid != null && element.dataset.soundid != "") {
-        var e = element;
-        soundManager.getSoundById(element.dataset.soundid).play({
-            onplay: function() {
-                e.style.background = "#00FF00";
-            },
-            onfinish: function() {
-                playing = false;
-                e.style.background = "#FFFF00";
+        if (soundManager.getSoundById(element.dataset.soundid).playState) {
+            playingNow = false;
+            soundManager.getSoundById(element.dataset.soundid).stop();
+            element.style.background = "#FFFF00";
+            return;
+        }
+        if (element.dataset.soundid != null && element.dataset.soundid != "") {
+            var e = element;
+            var options = {
+                onplay: function() {
+                    e.style.background = "#00FF00";
+                },
+                onfinish: function() {
+                    playing = false;
+                    e.style.background = "#FFFF00";
+                },
+                onstop: function() {
+                    playing = false;
+                    e.style.background = "#FFFF00";
+                }
             }
-        });
+
+            if (element.dataset.from) {
+                options.from = element.dataset.from;
+            }
+            if (element.dataset.to) {
+                options.to = element.dataset.to;
+            }
+            soundManager.getSoundById(element.dataset.soundid).play(options);
         }
     }
 }
@@ -60,6 +72,7 @@ function addSC(url) {
     SC.get('/resolve', {url: track_url}, function(track) {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
             pressedButton.dataset.soundid = sound.id;
+            sliceSound(sound, pressedButton);
             pressedButton.style.background = "#FFFF00";
             pressedButton = 'undefined';
         });
@@ -74,9 +87,11 @@ function addFile(files) {
     var reader = new FileReader();
 
     reader.onloadend = function () {
-        pressedButton.dataset.soundid = soundManager.createSound({
+        var sound = soundManager.createSound({
             url: reader.result
-        }).id;
+        });
+        pressedButton.dataset.soundid = sound.id;
+        sliceSound(sound, pressedButton);
         pressedButton.style.background = "#FFFF00";
         pressedButton = 'undefined';
     }
@@ -85,16 +100,30 @@ function addFile(files) {
 
 }
 
-function sliceSound(e) {
-    switch(e.dataset.type) {
-        case "local":
+function sliceSound(so, e) {
 
-            break;
-        case "soundcloud":
+    so.load({
+        onload: function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: so.durationEstimate,
+              values: [ 0, so.durationEstimate ],
+              slide: function( event, ui ) {
+                e.dataset.from = ui.values[0];
+                e.dataset.to = ui.values[1];
+              },
+              change: function( event, ui ) {
+                e.dataset.from = ui.values[0];
+                e.dataset.to = ui.values[1];
+              }
+            });
+        }
+    })
 
-            break;
+    console.log(so.duration);
 
-    }
+
 
     // get track length
 
