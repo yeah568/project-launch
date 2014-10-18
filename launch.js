@@ -13,7 +13,15 @@ $('.button').on('click',function() {
 
 	}*/
     if (this.dataset.soundid != null && this.dataset.soundid != "") {
-        soundManager.getSoundById(this.dataset.soundid).play();
+        var e = this;
+        soundManager.getSoundById(this.dataset.soundid).play({
+            onplay: function() {
+                e.style.background = "#FF0000";
+            },
+            onfinish: function() {
+                e.style.background = "#FFFF00";
+            }
+        });
     }
 })
 
