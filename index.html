@@ -12,7 +12,7 @@
       client_id: "be26e36572618f7b450125e3b4f68854"
     });
   </script>
-  <script src="launch.js"></script>
+
 
 
   <!-- Styles -->
@@ -20,11 +20,12 @@
 
 </head>
 <body>
-  <button data-type="local" data-sound="assets/pop.wav" class="playButton" id="test">POP</button>
+  <button data-type="local" data-sound="assets/pop.wav" class="playButton">POP</button>
+  <button data-type="local" data-sound="soundmanager2/demo/christmas-lights/sound/glass0.mp3" class="playButton">SMASH</button>
 	<ul class="board">
 		<ul class="row">
-			<li class="button">1</li>
-			<li class="button">2</li>
+			<li data-type="local" data-sound="assets/pop.wav" class="button playButton">POP</li>
+			<li data-type="local" data-sound="soundmanager2/demo/christmas-lights/sound/glass0.mp3" class="button playButton">SMASH</li>
 			<li class="button">2</li>
 		</ul>
 		<ul class="row">
@@ -32,6 +33,6 @@
 			<li class="button">2</li>
 		</ul>
 	</ul>
-
+<script src="launch.js"></script>
 </body>
 </html>

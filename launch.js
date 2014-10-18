@@ -1,11 +1,11 @@
-$('.playButton').on('click', {sound: $(this).dataset.sound}, function() {
-    console.log($(this).attr("id"));
-});
+$('.playButton').on('click',function() {
+    soundManager.createSound({
+        url: this.dataset.sound
+    }).play();
+})
 
 function playSound(e) {
-    soundManager.createSound({
-        url: e.data.sound
-    }).play();
+
 }
 
 
