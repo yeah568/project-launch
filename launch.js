@@ -2,9 +2,11 @@ SC.initialize({
       client_id: "be26e36572618f7b450125e3b4f68854"
 });
 
-document.onkeypress =  keyEvent;
-var soundids = [];
+document.onkeydown =  keyEvent;
+var macroRecording = false;
 var buttons = [];
+var times = [];
+var numrowcodes = [49,50,51,52,53];
 
 /*$('.button').on('click',function() {
     playSound(this);
@@ -17,7 +19,6 @@ function playSound(element) {
         playingNow = false;
         soundManager.getSoundById(element.dataset.soundid).stop();
         element.style.background = "#FFFF00";
-
         return;
     }
     if (element.dataset.soundid != null && element.dataset.soundid != "") {
@@ -54,17 +55,6 @@ function setSoundSource(reference, element) {
 	element.dataset.sound = reference;
 }
 
-function addSC() {
-    var track_url = $("#scurl").val();
-    SC.get('/resolve', {url: track_url}, function(track) {
-        SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
-            soundids.push(sound.id);
-            pressedButton.dataset.soundid = sound.id;
-            pressedButton.style.background = "#FFFF00";
-        });
-    })
-};
-
 function addSC(url) {
     var track_url = url;
     SC.get('/resolve', {url: track_url}, function(track) {
@@ -73,7 +63,6 @@ function addSC(url) {
             pressedButton.dataset.soundid = sound.id;
             pressedButton.style.background = "#FFFF00";
             pressedButton = 'undefined';
-
         });
     })
 };
@@ -115,12 +104,49 @@ function sliceSound(e) {
 }
 
 // watches for key presses
+
 function keyEvent(e) {
-    var charCode = (typeof e.which == "number") ? e.which : e.keyCode
+    var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
     var element = document.getElementById(charCode);
-    playSound(element);
+    if ($.inArray(charCode, numrowcodes) == -1) {
+        playSound(element);
+        if (macroRecording) {
+            recordTime(e);
+        } else {}
+    } else if (macroRecording) {
+        stopMacro(e);
+    } else {
+        startMacro(e);
+    }
 }
 
+
+// macro shit
+function startMacro (e) {
+    times.push({"timestamp":e.timeStamp,
+                "keycode":e.which})
+    macroRecording = true;
+}
+
+function recordTime (e) {
+    times.push({"timestamp":e.timeStamp,
+                "keycode":e.which})
+}
+
+function stopMacro (e) {
+    times.push({"timestamp":e.timeStamp,
+                "keycode":e.which})
+    macroRecording = false;
+    console.log(times);
+}
+
+function reportTimes() {
+    var reportString = "";
+    for(var i = 0; i < times.length - 1; ++i) {
+         reportString += (i+1) + ": " + (times[i+1].timestamp - times[i].timestamp) + " ";
+    }
+    return reportString; // add this somewhere or alert it
+}
 
 
 
