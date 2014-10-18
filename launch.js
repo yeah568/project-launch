@@ -11,6 +11,8 @@ $('.button').on('click',function() {
 })
 
 function playSound(element) {
+    if (mode != 'edit') {
+
     if (soundManager.getSoundById(element.dataset.soundid).playState) {
         playingNow = false;
         soundManager.getSoundById(element.dataset.soundid).stop();
@@ -18,7 +20,6 @@ function playSound(element) {
         
         return;
     }
-    if (mode != 'edit') {
     if (element.dataset.soundid != null && element.dataset.soundid != "") {
         var e = element;
         soundManager.getSoundById(element.dataset.soundid).play({
@@ -58,8 +59,21 @@ function addSC() {
     SC.get('/resolve', {url: track_url}, function(track) {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
             soundids.push(sound.id);
+            pressedButton.dataset.soundid = sound.id;
+            pressedButton.style.background = "#FFFF00";
+        });
+    })
+};
+
+function addSC(url) {
+    var track_url = url;
+    SC.get('/resolve', {url: track_url}, function(track) {
+        SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
+            soundids.push(sound.id);
             buttons[$('#buttonSelect').val()].dataset.soundid = sound.id;
             buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
+            pressedButton = 'undefined';
+
         });
     })
 };
