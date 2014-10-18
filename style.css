@@ -3,12 +3,13 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-  font-family: "Verdana", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 }
 
 .container {
   display: -webkit-box;
-  display: -moz-box;  
+  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -25,7 +26,7 @@ html, body {
 
 .board-div {
   display: -webkit-box;
-  display: -moz-box;  
+  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -41,13 +42,13 @@ html, body {
   padding-right: 100px;
   margin: 0;
   list-style: none;
-  
+
   display: -webkit-box;
-  display: -moz-box;	
+  display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  
+
   -webkit-flex-flow: row wrap;
   justify-content: flex-start;
 
@@ -66,7 +67,7 @@ html, body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  
+
   -webkit-flex-flow: row wrap;
   justify-content: flex-start;
 }
@@ -85,9 +86,9 @@ html, body {
 }
 
 .button p {
-  display: table-cell; 
-  vertical-align: middle; 
-  text-align: center; 
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .modes {
@@ -153,8 +154,8 @@ html, body {
 }
 
 .macro p {
-  display: table-cell; 
-  vertical-align: middle; 
-  text-align: center; 
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 

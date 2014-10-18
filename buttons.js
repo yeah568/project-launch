@@ -28,15 +28,19 @@ function addCol() {
 }
 
 function removeRow() {
-	rows--;
-	$(".board").children().last().remove();
+	if (rows > 1) {
+		rows--;
+		$(".board").children().last().remove();
+	}
 }
 
 function removeCol() {
-	columns--;
+	if (columns > 1) {
+		columns--;
 
-	for (var i = 0; i < rows; i++) {
-		$(".row").eq(i).children().last().remove();
+		for (var i = 0; i < rows; i++) {
+			$(".row").eq(i).children().last().remove();
+		}
 	}
 }
 
