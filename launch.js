@@ -198,7 +198,7 @@ function startOrPlayMacro(e) {
 function bindKeys(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
     pressedButtonKey.setAttribute('id', charCode);
-    pressedButtonKey.style.background = "#DDDDDD";
+    pressedButtonKey.style.background = previousColor;
 
     while (pressedButtonKey.firstChild) {
         pressedButtonKey.removeChild(pressedButtonKey.firstChild);
