@@ -31,6 +31,9 @@ function playSound(element) {
                 onfinish: function() {
                     playing = false;
                     e.style.background = "#FFFF00";
+                    if (e.dataset.loop) {
+                        playSound(element);
+                    }
                 },
                 onstop: function() {
                     playing = false;
@@ -75,6 +78,11 @@ function addSC(url) {
             pressedButton.dataset.soundid = sound.id;
             sliceSound(sound, pressedButton);
             pressedButton.style.background = "#FFFF00";
+            if (document.getElementById("loop").checked) {
+                pressedButton.dataset.loop = true;
+            } else {
+                pressedButton.dataset.loop = false;
+            }
             pressedButton = 'undefined';
         });
     })
@@ -94,6 +102,11 @@ function addFile(files) {
         pressedButton.dataset.soundid = sound.id;
         sliceSound(sound, pressedButton);
         pressedButton.style.background = "#FFFF00";
+        if (document.getElementById("loop").checked) {
+                pressedButton.dataset.loop = true;
+            } else {
+                pressedButton.dataset.loop = false;
+        }
         pressedButton = 'undefined';
     }
 
