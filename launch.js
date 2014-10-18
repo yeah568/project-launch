@@ -7,21 +7,17 @@ var soundids = [];
 var buttons = [];
 
 $('.button').on('click',function() {
-/*	if (this.dataset.type == "local") {
-    	soundManager.createSound({
-        	url: this.dataset.sound
-    	}).play();
-	}
-	else if (this.dataset.type == "soundcloud") {
-
-
-	}*/
-
-    var element = this;
-    playSound(element);
+    playSound(this);
 })
 
 function playSound(element) {
+    if (soundManager.getSoundById(element.dataset.soundid).playState) {
+        playingNow = false;
+        soundManager.getSoundById(element.dataset.soundid).stop();
+        element.style.background = "#FFFF00";
+        
+        return;
+    }
     if (mode != 'edit') {
     if (element.dataset.soundid != null && element.dataset.soundid != "") {
         var e = element;
@@ -30,6 +26,7 @@ function playSound(element) {
                 e.style.background = "#00FF00";
             },
             onfinish: function() {
+                playing = false;
                 e.style.background = "#FFFF00";
             }
         });
