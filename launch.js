@@ -4,7 +4,7 @@ SC.initialize({
 
 document.onkeydown =  keyEvent;
 var macroRecording = false;
-var buttons = [];
+/*var buttons = [];*/
 var times = [];
 var numrowcodes = [49,50,51,52,53];
 var macros = [];
@@ -51,7 +51,7 @@ function playSound(element) {
 
 
 
-$('li').each(function(index, e) {
+/*$('li').each(function(index, e) {
     $('#buttonSelect').append($('<option>', {
         value: index,
         text: index
@@ -61,7 +61,7 @@ $('li').each(function(index, e) {
         text: index
     }));
     buttons.push(e);
-})
+})*/
 
 
 function setSoundSource(reference, element) {
@@ -123,13 +123,6 @@ function sliceSound(so, e) {
     })
 
     console.log(so.duration);
-
-
-
-    // get track length
-
-    // set slider to 0/length
-
 }
 
 // watches for key presses
@@ -161,29 +154,29 @@ function sessionModeKey(e) {
 
 function startOrPlayMacro(e) {
     switch (e.which) {
-        case 49: 
-            if (macros[0] != null) 
+        case 49:
+            if (macros[0] != null)
                 playMacro(e)
             else startMacro(e)
             break;
-        case 50: 
-            if (macros[1] != null) 
+        case 50:
+            if (macros[1] != null)
                 playMacro(e)
             else startMacro(e)
             break;
-        case 51: 
-            if (macros[2] != null) 
+        case 51:
+            if (macros[2] != null)
                 playMacro(e)
             else startMacro(e)
             break;
-        case 52: 
+        case 52:
             if (macros[3] != null)
                 playMacro(e)
             else startMacro(e)
             break;
         case 53:
-            if (macros[4] != null) 
-                playMacro(e) 
+            if (macros[4] != null)
+                playMacro(e)
             else startMacro(e)
             break;
     }
@@ -191,18 +184,18 @@ function startOrPlayMacro(e) {
 
 function bindKeys(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    pressedButton.setAttribute('id', charCode);
-    pressedButton.style.background = "#7CFC00";
+    pressedButtonKey.setAttribute('id', charCode);
+    pressedButtonKey.style.background = "#DDDDDD";
 
-    while (pressedButton.firstChild) {
-        pressedButton.removeChild(pressedButton.firstChild);
+    while (pressedButtonKey.firstChild) {
+        pressedButtonKey.removeChild(pressedButtonKey.firstChild);
     }
 
     var paragraph = document.createElement("p");
     var letter = document.createTextNode(String.fromCharCode(charCode));
     paragraph.appendChild(letter);
-    pressedButton.appendChild(paragraph);
-    pressedButton = undefined;
+    pressedButtonKey.appendChild(paragraph);
+    pressedButtonKey = undefined;
 
 }
 
@@ -224,23 +217,23 @@ function stopMacro (e) {
                 "keycode":e.which})
     macroRecording = false;
     switch (e.which) {
-        case 49: 
+        case 49:
             macros[0] = times;
             times = [];
             break;
-        case 50: 
+        case 50:
             macros[1] = times;
             times = [];
             break;
-        case 51: 
+        case 51:
             macros[2] = times;
             times = [];
             break;
-        case 52: 
+        case 52:
             macros[3] = times;
             times = [];
             break;
-        case 53: 
+        case 53:
             macros[4] = times;
             times = [];
             break;
@@ -250,19 +243,19 @@ function stopMacro (e) {
 function playMacro(e) {
     var macroToPlay;
     switch (e.which) {
-        case 49: 
+        case 49:
             macroToPlay = macros[0];
             break;
-        case 50: 
+        case 50:
             macroToPlay = macros[0];
             break;
-        case 51: 
+        case 51:
             macroToPlay = macros[0];
             break;
-        case 52: 
+        case 52:
             macroToPlay = macros[0];
             break;
-        case 53: 
+        case 53:
             macroToPlay = macros[0];
             break;
     }
