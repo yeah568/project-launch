@@ -3,9 +3,9 @@ var columns = 4	;
 
 
 function addRow() {
-	var newRow = $('<ul class="row" id="row' + rows + '"></ul>');
+	var newRow = $('<ul class="row"></ul>');
 	for (var i = 0; i < columns; i++) {
-		newRow.append('<li class="button" id="col' + columns + '">');
+		newRow.append('<li class="button">');
 	}
 
 	$(".board").append(newRow);
@@ -13,7 +13,7 @@ function addRow() {
 }
 
 function addCol() {
-	var newButton = $('<li class="button" id="col' + columns + '">');
+	var newButton = $('<li class="button">');
 
 	$(".row").append(newButton);
 	columns++;
@@ -21,16 +21,14 @@ function addCol() {
 
 function removeRow() {
 	rows--;
-	var row = "#row" + rows;
-	$(row).remove();
+	$(".board").children().last().remove();
 }
 
 function removeCol() {
 	columns--;
-	var col = "#col" + columns;
 
 	for (var i = 0; i < rows; i++) {
-		$(col).remove();
+		$(".row").eq(i).children().last().remove();
 	}
 }
 
