@@ -10,6 +10,7 @@ $(document).ready(function() {
 	init();
 });
 
+
 function addRow() {
 	var newRow = $('<ul class="row"></ul>');
 	for (var i = 0; i < columns; i++) {

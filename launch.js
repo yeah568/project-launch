@@ -263,7 +263,7 @@ function playMacro(e) {
     var lastTime = 0;
     for (var i = 1; i < macroRelTime.length - 1; i++) {
         var element = document.getElementById('char' + macroRelTime[i]['keycode']);
-        setTimeout(playSound(element), macroRelTime[i]['timestamp'] - lastTime);
+        setTimeout(function () {playSound(element)}, macroRelTime[i]['timestamp'] - lastTime);
         var lastTime = macroRelTime[i]['timestamp'];
     }
 }
