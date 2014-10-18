@@ -12,6 +12,7 @@ $('.button').on('click',function() {
 
 
 	}*/
+    if (mode != 'edit') {
     if (this.dataset.soundid != null && this.dataset.soundid != "") {
         var e = this;
         soundManager.getSoundById(this.dataset.soundid).play({
@@ -22,6 +23,7 @@ $('.button').on('click',function() {
                 e.style.background = "#FFFF00";
             }
         });
+        }
     }
 })
 
