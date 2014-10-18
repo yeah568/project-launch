@@ -1,5 +1,6 @@
 var rows = 3;
 var columns = 4	;
+var mode = 'edit';
 
 
 function addRow() {
@@ -33,7 +34,10 @@ function removeCol() {
 }
 
 $(".button").on("click", function() {
-	this.style.background = "#FF0000";
+	if (mode == 'session')
+		this.style.background = "#FF0000";
+	else if (mode == 'edit')
+		Apprise('test');
 });
 
 	
