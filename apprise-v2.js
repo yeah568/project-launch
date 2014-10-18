@@ -17,6 +17,32 @@ $(function() {
 	$body.append( $overlay.css('opacity', '.94') ).append($Apprise);
 });
 
+var webSettings = {
+	buttons: {
+		confirm: {
+			action: function(e) { 
+				console.log(e);
+				Apprise('close') },
+			id: 'confirm',
+			text: 'OK'
+		}
+	},
+
+	input: true
+};
+
+var localSettings = {
+	buttons: {
+		confirm: {
+			action: function(e) { 
+				console.log(e);
+				Apprise('close') },
+			id: 'confirm',
+			text: 'OK'
+		}
+	},
+}
+
 function Apprise(text, options) {
 	
 	// Restrict blank modals
@@ -26,7 +52,7 @@ function Apprise(text, options) {
 	
 	// Necessary variables
 	var $me = this,
-			//$_inner = $('<div class="apprise-inner">'),
+			$_inner = $('<div class="apprise-inner">'),
 			$_buttons = $('<div class="apprise-buttons">'),
 			$_input = $('<input type="text">');
 	
@@ -36,12 +62,16 @@ function Apprise(text, options) {
 		animation: 700,	// Animation speed
 		buttons: {
 			web: {
-				action: function() { $me.dissapear(); }, // open web input box
+				action: function() { 
+					Apprise('Please input a URL...', webSettings); 
+					$me.dissapear();}, // open web input box
 				id: 'web', // Element ID
 				text: 'Web' // Button text
 			},
 			local: {
-				action: function() { $me.dissapear(); }, // open local dialog box
+				action: function() { 
+				Apprise('<input type="file" id="fileInput">', localSettings);
+				$me.dissapear();}, // open local dialog box
 				id: 'local', // Element ID
 				text: 'My Computer'
 			}
@@ -182,7 +212,7 @@ function Apprise(text, options) {
 	$window.resize( function() { $me.adjustWidth() } );
 	
 	// Append elements, show Apprise
-	$Apprise.html('').append($_buttons);
+	$Apprise.html('').append( $_inner.append('<div class="apprise-content">' + text + '</div>') ).append($_buttons);
 	$cA = this;
 	
 	if(settings.input) {
