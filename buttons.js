@@ -42,6 +42,14 @@ function init() {
 			Apprise('asdf');
 	});
 
+	$(".button playButton").on("click", function() {
+		if (mode == 'session')
+			this.style.background = "#FF0000"; 	
+		else if (mode == 'edit')
+			Apprise('asdf');
+	});
+
+
 	$(".button").hover(function() {
 		this.style.border = "2px solid blue";
 	}, function() {
