@@ -21,8 +21,6 @@ html, body {
   border: 1px solid;
   border-radius: 10px;
   
-  
-
   display: -webkit-box;
   display: -moz-box;	
   display: -ms-flexbox;
@@ -71,12 +69,13 @@ html, body {
 }
 
 .modes {
-  padding-bottom: 5px;
+  
 }
 
 .mode-tab {
   border: 1px solid;
-  padding: 2px;
+  border-radius: 10px;
+  padding: 5px;
 
   display: inline-block;
 }
