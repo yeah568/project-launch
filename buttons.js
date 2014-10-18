@@ -32,7 +32,8 @@ function removeCol() {
 	}
 }
 
-
-
+$(".button").on("click", function() {
+	this.style.background = "#FF0000";
+});
 
 	
