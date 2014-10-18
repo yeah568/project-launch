@@ -152,7 +152,7 @@ function keyEvent(e) {
 
 function sessionModeKey(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    var element = document.getElementById(charCode);
+    var element = document.getElementById('char' + charCode);
     if ($.inArray(charCode, numrowcodes) == -1) {
         playSound(element);
         if (macroRecording) {
@@ -197,7 +197,7 @@ function startOrPlayMacro(e) {
 
 function bindKeys(e) {
     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    pressedButtonKey.setAttribute('id', charCode);
+    pressedButtonKey.setAttribute('id', 'char' + charCode);
     pressedButtonKey.style.background = previousColor;
 
     while (pressedButtonKey.firstChild) {
@@ -280,8 +280,8 @@ function playMacro(e) {
         macroRelTime.push({'timestamp':relTime, 'keycode':obj['keycode']})
     })
     var lastTime = 0;
-    for (i=1; i<macroRelTime.length - 1; i++) {
-        var element = document.getElementById(macroRelTime[i]['keycode']);
+    for (var i = 1; i < macroRelTime.length - 1; i++) {
+        var element = document.getElementById('char' + macroRelTime[i]['keycode']);
         setTimeout(playSound(element), macroRelTime[i]['timestamp'] - lastTime);
         var lastTime = macroRelTime[i]['timestamp'];
     }
