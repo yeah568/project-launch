@@ -49,6 +49,13 @@ function init() {
 		this.style.border = "2px solid black";
 	});
 
+	$(".macro").hover(function() {
+		this.style.border = "2px solid blue";
+	}, function() {
+		this.style.border = "2px solid black";
+	});
+
+
 	$(".mode-tab").on("click", function() {
 		document.getElementById(mode).style.background = "#FFFFFF";
 		mode = this.id;
