@@ -7,6 +7,7 @@ var macroRecording = false;
 var buttons = [];
 var times = [];
 var numrowcodes = [49,50,51,52,53];
+var macros = [];
 
 /*$('.button').on('click',function() {
     playSound(this);
@@ -121,7 +122,37 @@ function sessionModeKey(e) {
     } else if (macroRecording) {
         stopMacro(e);
     } else {
-        startMacro(e);
+        startOrPlayMacro(e);
+    }
+}
+
+function startOrPlayMacro(e) {
+    switch (e.which) {
+        case 49: 
+            if (macros[0] != null) 
+                playMacro(e)
+            else startMacro(e)
+            break;
+        case 50: 
+            if (macros[1] != null) 
+                playMacro(e)
+            else startMacro(e)
+            break;
+        case 51: 
+            if (macros[2] != null) 
+                playMacro(e)
+            else startMacro(e)
+            break;
+        case 52: 
+            if (macros[3] != null)
+                playMacro(e)
+            else startMacro(e)
+            break;
+        case 53:
+            if (macros[4] != null) 
+                playMacro(e) 
+            else startMacro(e)
+            break;
     }
 }
 
@@ -142,8 +173,64 @@ function stopMacro (e) {
     times.push({"timestamp":e.timeStamp,
                 "keycode":e.which})
     macroRecording = false;
-    console.log(times);
+    switch (e.which) {
+        case 49: 
+            macros[0] = times;
+            times = [];
+            break;
+        case 50: 
+            macros[1] = times;
+            times = [];
+            break;
+        case 51: 
+            macros[2] = times;
+            times = [];
+            break;
+        case 52: 
+            macros[3] = times;
+            times = [];
+            break;
+        case 53: 
+            macros[4] = times;
+            times = [];
+            break;
+    }
 }
+
+function playMacro(e) {
+    var macroToPlay;
+    switch (e.which) {
+        case 49: 
+            macroToPlay = macros[0];
+            break;
+        case 50: 
+            macroToPlay = macros[0];
+            break;
+        case 51: 
+            macroToPlay = macros[0];
+            break;
+        case 52: 
+            macroToPlay = macros[0];
+            break;
+        case 53: 
+            macroToPlay = macros[0];
+            break;
+    }
+    var startTime = macroToPlay[0]['timestamp'];
+    var endTime = macroToPlay[macroToPlay.length - 1]['timestamp'];
+    var macroRelTime = [];
+    macroToPlay.forEach(function (obj) {
+        var relTime = obj['timestamp'] - startTime;
+        macroRelTime.push({'timestamp':relTime, 'keycode':obj['keycode']})
+    })
+    for (i=1; i<macroRelTime.length - 1; i++) {
+        var lastTime = 0;
+        var element = document.getElementById(macroRelTime[i]['keycode']);
+        setTimeout(playSound(element), macroRelTime[i]['timestamp'] - lastTime);
+        var lastTime = macroRelTime[i]['timestamp'];
+    }
+}
+
 
 function reportTimes() {
     var reportString = "";
