@@ -1,12 +1,12 @@
 var rows = 3;
 var columns = 4	;
-var mode = 'edit';
+var mode = 'session';
 
 
 function addRow() {
 	var newRow = $('<ul class="row"></ul>');
 	for (var i = 0; i < columns; i++) {
-		newRow.append('<li class="button">');
+		newRow.append('<li class="button" style>');
 	}
 
 	$(".board").append(newRow);
@@ -14,7 +14,7 @@ function addRow() {
 }
 
 function addCol() {
-	var newButton = $('<li class="button">');
+	var newButton = $('<li class="button" style="border: 2px solid black">');
 
 	$(".row").append(newButton);
 	columns++;
@@ -33,11 +33,29 @@ function removeCol() {
 	}
 }
 
-$(".button").on("click", function() {
-	if (mode == 'session')
-		this.style.background = "#FF0000";
-	else if (mode == 'edit')
-		Apprise('asdf');
-});
 
+function init() {
+	$(".button").on("click", function() {
+		if (mode == 'session')
+			this.style.background = "#FF0000";
+		else if (mode == 'edit')
+			Apprise('asdf');
+	});
+
+	$(".button").hover(function() {
+		this.style.border = "2px solid blue";
+	}, function() {
+		this.style.border = "2px solid black";
+	});
+
+	$(".mode-tab").on("click", function() {
+		document.getElementById(mode).style.background = "#FFFFFF";
+		mode = this.id;
+		this.style.background = "#FF0000";
+
+	});
+
+	document.getElementById(mode).style.background = "#FF0000";
+
+}
 	
