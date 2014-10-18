@@ -16,7 +16,7 @@ $('.button').on('click',function() {
         var e = this;
         soundManager.getSoundById(this.dataset.soundid).play({
             onplay: function() {
-                e.style.background = "#FF0000";
+                e.style.background = "#00FF00";
             },
             onfinish: function() {
                 e.style.background = "#FFFF00";
@@ -71,11 +71,6 @@ function addFile(files) {
     }
 
     reader.readAsDataURL(file);
-
-}
-
-function playSound(e) {
-
 
 }
 
