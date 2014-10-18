@@ -4,6 +4,8 @@ html, body {
 	padding: 0;
 	margin: 0;
   font-family: 'Montserrat', sans-serif;
+
+  background: #999999;
 }
 
 .container {
@@ -108,6 +110,7 @@ html, body {
   border: 1px solid;
   border-radius: 10px;
   padding: 5px;
+  margin-bottom: 5px;
 
   background: #FFFFFF;
 
@@ -117,6 +120,7 @@ html, body {
 }
 
 .options {
+  padding-top: 5px;
   padding-bottom: 10px;
 }
 
