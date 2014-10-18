@@ -2,6 +2,9 @@ var rows = 3;
 var columns = 4	;
 var mode = 'session';
 
+$(document).ready(function() {
+	init();
+});
 
 function addRow() {
 	var newRow = $('<ul class="row"></ul>');
