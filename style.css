@@ -6,6 +6,23 @@ html, body {
   font-family: "Verdana", sans-serif;
 }
 
+.container {
+  display: -webkit-box;
+  display: -moz-box;  
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  list-style: none;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  flex-direction: column;
+  justify-content: center;
+}
+
 .board-div {
   display: -webkit-box;
   display: -moz-box;  
@@ -14,14 +31,9 @@ html, body {
   display: flex;
   border: 5px solid black;
   border-radius: 10px;
-  background: #9CBA7F;
+  background: #222222;
 
 
-
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .board {
@@ -29,7 +41,6 @@ html, body {
   padding-right: 100px;
   margin: 0;
   list-style: none;
-           <!--change back to black -->
   
   display: -webkit-box;
   display: -moz-box;	
@@ -100,3 +111,44 @@ html, body {
   float: right;
   cursor: pointer;
 }
+
+.macros {
+  display: inline-block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  list-style: none;
+
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+  padding-top: 17px;
+
+  position: relative;
+  top: -15px;
+  z-index: -1;
+
+  flex-direction: row;
+  justify-content: center;
+}
+
+.macro {
+  border: 1px solid;
+  border-radius: 30px;
+
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  margin: 3px;
+
+  display: table;
+}
+
+.macro p {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
