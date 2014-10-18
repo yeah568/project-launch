@@ -46,7 +46,10 @@ function init() {
 		if (mode=="edit") {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
-		} else {
+		} else if (mode=="key-bindings") {
+			pressedButton = this;
+		}
+		else {
 			 playSound(this);
 		}
 	})
