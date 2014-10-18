@@ -7,11 +7,6 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="soundmanager2/script/soundmanager2.js"></script>
   <script src="//connect.soundcloud.com/sdk.js"></script>
-  <script>
-    SC.initialize({
-      client_id: "be26e36572618f7b450125e3b4f68854"
-    });
-  </script>
 
 
   <!-- Styles -->
@@ -21,10 +16,10 @@
 <body>
 	<ul class="board">
 		<ul class="row">
-			<li class="button playButton" data-sound="assets/pop.wav">POP</li>
-			<li class="button playButton" data-sound="assets/glass.mp3">SMASH</li>
-			<li class="button playButton" data-sound="assets/mak.mp3"> MAK</li>
-			<li class="button"/>
+			<li class="button playButton" data-sound="assets/pop.wav" data-type="local">POP</li> 
+			<li class="button playButton" data-sound="assets/glass.mp3" data-type="local">SMASH</li>
+			<li class="button playButton" data-sound="assets/mak.mp3" data-type="local">MAK</li>
+			<li class="button playButton" data-sound="https://soundcloud.com/wqiwilliam/pop" data-type="soundcloud"/>
 		</ul>
 		<ul class="row">
 			<li class="button"/>
