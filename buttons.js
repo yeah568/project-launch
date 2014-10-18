@@ -53,7 +53,7 @@ function init() {
 		if (mode=="edit") {
 			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
-		} else if (mode=="pressedButtonKeydings") {
+		} else if (mode=="key-bindings") {
 			if (pressedButtonKey === undefined) {
 				pressedButtonKey = this;
 				previousColor = pressedButtonKey.style.background;
