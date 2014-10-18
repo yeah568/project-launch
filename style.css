@@ -21,6 +21,7 @@ html, body {
 
 .board {
   padding: 10px;
+  padding-right: 100px;
   margin: 0;
   list-style: none;
   background: #222222;
