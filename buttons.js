@@ -1,6 +1,7 @@
 var rows = 3;
 var columns = 4	;
 var mode = 'session';
+var pressedButton;
 
 $(document).ready(function() {
 	init();
@@ -43,7 +44,10 @@ function init() {
 
 	$(".button").on("click", function() {
 		if (mode=="edit") {
+			pressedButton = this;
 			Apprise("Is your sound from the web or your computer?");
+		} else {
+			 playSound(this);
 		}
 	})
 	$(".button").hover(function() {
@@ -69,4 +73,4 @@ function init() {
 	document.getElementById(mode).style.background = "#FF0000";
 
 }
-	
+

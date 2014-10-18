@@ -8,19 +8,19 @@ var buttons = [];
 var times = [];
 var numrowcodes = [49,50,51,52,53];
 
-$('.button').on('click',function() {
+/*$('.button').on('click',function() {
     playSound(this);
-})
+})*/
 
 function playSound(element) {
+    if (mode != 'edit') {
+
     if (soundManager.getSoundById(element.dataset.soundid).playState) {
         playingNow = false;
         soundManager.getSoundById(element.dataset.soundid).stop();
         element.style.background = "#FFFF00";
-        
-        return
+        return;
     }
-    if (mode != 'edit') {
     if (element.dataset.soundid != null && element.dataset.soundid != "") {
         var e = element;
         soundManager.getSoundById(element.dataset.soundid).play({
@@ -55,12 +55,14 @@ function setSoundSource(reference, element) {
 	element.dataset.sound = reference;
 }
 
-function addSC() {
-    var track_url = $("#scurl").val();
+function addSC(url) {
+    var track_url = url;
     SC.get('/resolve', {url: track_url}, function(track) {
         SC.stream('/tracks/' + track.id, {autoLoad: true}, function(sound) {
-            buttons[$('#buttonSelect').val()].dataset.soundid = sound.id;
-            buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
+            soundids.push(sound.id);
+            pressedButton.dataset.soundid = sound.id;
+            pressedButton.style.background = "#FFFF00";
+            pressedButton = 'undefined';
         });
     })
 };
@@ -73,10 +75,11 @@ function addFile(files) {
     var reader = new FileReader();
 
     reader.onloadend = function () {
-        buttons[$('#buttonSelectFile').val()].dataset.soundid = soundManager.createSound({
+        pressedButton.dataset.soundid = soundManager.createSound({
             url: reader.result
         }).id;
-        buttons[$('#buttonSelect').val()].style.background = "#FFFF00";
+        pressedButton.style.background = "#FFFF00";
+        pressedButton = 'undefined';
     }
 
     reader.readAsDataURL(file);
