@@ -31,6 +31,18 @@ var webSettings = {
 	input: true
 };
 
+var localSettings = {
+	buttons: {
+		confirm: {
+			action: function(e) { 
+				console.log(e);
+				Apprise('close') },
+			id: 'confirm',
+			text: 'OK'
+		}
+	},
+}
+
 function Apprise(text, options) {
 	
 	// Restrict blank modals
@@ -57,7 +69,9 @@ function Apprise(text, options) {
 				text: 'Web' // Button text
 			},
 			local: {
-				action: function() { $me.dissapear(); }, // open local dialog box
+				action: function() { 
+				Apprise('<input type="file" id="fileInput">', localSettings);
+				$me.dissapear();}, // open local dialog box
 				id: 'local', // Element ID
 				text: 'My Computer'
 			}
