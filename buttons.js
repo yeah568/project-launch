@@ -39,20 +39,6 @@ function removeCol() {
 
 
 function init() {
-	$(".button").on("click", function() {
-		if (mode == 'session')
-			this.style.background = "#FF0000";
-		else if (mode == 'edit')
-			Apprise('Is your sound file from the web or your computer?');
-	});
-
-	$(".button playButton").on("click", function() {
-		if (mode == 'session')
-			this.style.background = "#FF0000"; 	
-		else if (mode == 'edit')
-			Apprise('asdf');
-	});
-
 
 	$(".button").hover(function() {
 		this.style.border = "2px solid blue";
