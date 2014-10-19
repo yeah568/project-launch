@@ -33,7 +33,9 @@ function removeRow() {
 	if (rows > 1) {
 		rows--;
 		$(".board").children().last().remove();
+		init();
 	}
+
 }
 
 function removeCol() {
@@ -42,54 +44,78 @@ function removeCol() {
 
 		for (var i = 0; i < rows; i++) {
 			$(".row").eq(i).children().last().remove();
+			init();
+
 		}
 	}
-}
-
-
-function init() {
-
-	$(".button").on("click", function() {
-		if (mode=="edit") {
-			pressedButton = this;
-			Apprise("Is your sound from the web or your computer?");
-		} else if (mode=="key-bindings") {
-			if (pressedButtonKey === undefined) {
-				pressedButtonKey = this;
-				previousColor = pressedButtonKey.style.background;
-			}
-			else {
-				pressedButtonKey.style.background = previousColor;
-				pressedButtonKey = this;
-				previousColor = pressedButtonKey.style.background;
-			}	
-			pressedButtonKey.style.background = "#FF0000";			
-		}
-		else if (mode=="session" || mode=="drums"){
-			 playSound(this);
-		}
-	})
-	$(".button").hover(function() {
-		this.style.border = "2px solid blue";
-	}, function() {
-		this.style.border = "2px solid black";
-	});
-
-	$(".macro").hover(function() {
-		this.style.border = "2px solid blue";
-	}, function() {
-		this.style.border = "2px solid black";
-	});
-
-
-	$(".mode-tab").on("click", function() {
-		document.getElementById(mode).style.background = "#FFFFFF";
-		mode = this.id;
-		this.style.background = "#FF0000";
-
-	});
-
-	document.getElementById(mode).style.background = "#FF0000";
 
 }
+
+
+$(".button").on("click", function() {
+	if (mode=="edit") {
+		pressedButton = this;
+		Apprise("Is your sound from the web or your computer?");
+	} else if (mode=="key-bindings") {
+		if (pressedButtonKey === undefined) {
+			pressedButtonKey = this;
+			previousColor = pressedButtonKey.style.background;
+		}
+		else {
+			pressedButtonKey.style.background = previousColor;
+			pressedButtonKey = this;
+			previousColor = pressedButtonKey.style.background;
+		}	
+		pressedButtonKey.style.background = "#FF0000";			
+	}
+	else if (mode=="session" || mode=="drums"){
+		 playSound(this);
+	}
+})
+
+
+
+$(".button").on("click", function() {
+	if (mode=="edit") {
+		pressedButton = this;
+		Apprise("Is your sound from the web or your computer?");
+	} else if (mode=="key-bindings") {
+		if (pressedButtonKey === undefined) {
+			pressedButtonKey = this;
+			previousColor = pressedButtonKey.style.background;
+		}
+		else {
+			pressedButtonKey.style.background = previousColor;
+			pressedButtonKey = this;
+			previousColor = pressedButtonKey.style.background;
+		}	
+		pressedButtonKey.style.background = "#FF0000";			
+	}
+	else if (mode=="session" || mode=="drums"){
+		 playSound(this);
+	}
+})
+$(".button").hover(function() {
+	this.style.border = "2px solid blue";
+}, function() {
+	this.style.border = "2px solid black";
+});
+
+$(".macro").hover(function() {
+	this.style.border = "2px solid blue";
+}, function() {
+	this.style.border = "2px solid black";
+});
+
+
+$(".mode-tab").on("click", function() {
+	document.getElementById(mode).style.background = "#FFFFFF";
+	mode = this.id;
+	this.style.background = "#FF0000";
+
+});
+
+document.getElementById(mode).style.background = "#FF0000";
+
+
 
